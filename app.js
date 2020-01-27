@@ -34,6 +34,6 @@ app.get('/list', (req,res) => {
 });
 
 
-const server = app.listen(config.serverPort, () => {
-    console.log("Server is listening at port " + config.serverPort)
+const server = app.listen(process.env.PORT || config.serverPort, () => {
+    console.log("Server is listening at port " + (process.env.PORT || config.serverPort.serverPort))
 });
