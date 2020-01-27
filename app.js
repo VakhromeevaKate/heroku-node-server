@@ -19,7 +19,7 @@ const allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 
 app.get('/',(req,res) => {
-    console.log(dataPaths);
+    console.log(config.dataPaths);
 })
 
 app.get('/list', (req,res) => {
