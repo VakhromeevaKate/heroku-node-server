@@ -19,14 +19,14 @@ const allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 
 app.get('/',(req,res) => {
-    console.log(config.dataPaths);
+    res.send(config.dataPaths);
 })
 
 app.get('/list', (req,res) => {
     const list = new Promise((resolve, reject) => {
         fs.readFile(config.dataPaths.dataFile,'utf8',(error, data) => {
             if (error) return reject(error);
-            return resolve(data.split(config.parseConfig.delimiter))
+            return resolve(data); // .split(config.parseConfig.delimiter))
         });
     }).then((list) => {
         res.send(list);}
